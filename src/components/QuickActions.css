@@ -1,0 +1,124 @@
+/* Container for the 4 quick actions */
+.quick-actions {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin: 28px 0 18px;
+  justify-items: center;
+}
+
+/* Each action is a clean button */
+.quick-item {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: center;
+  color: #111827;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.quick-item:focus {
+  outline: none;
+}
+
+/* Icon tile */
+.quick-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* icon color */
+  opacity: 1;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+/* Press feedback */
+.quick-item:active .quick-icon {
+  transform: scale(0.96);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+/* Labels under icons */
+.quick-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Color variants to match your design */
+.quick-icon.violet {
+  background: linear-gradient(135deg, #7c4dff, #8b5cf6);
+}
+
+.quick-icon.blue {
+  background: linear-gradient(135deg, #6b7cff, #5b6cff);
+}
+
+.quick-icon.red {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+}
+
+.quick-icon.teal {
+  background: linear-gradient(135deg, #2bb0a1, #22c55e);
+}
+
+/* Hover effect */
+.quick-item:hover .quick-icon {
+  transform: translateY(-3px) scale(1.04);
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 10px 22px rgba(124, 77, 255, 0.25);
+}
+
+/* Color-tinted glow per icon */
+.quick-item:hover .quick-icon.violet {
+  box-shadow: 0 10px 22px rgba(124, 77, 255, 0.35);
+}
+
+.quick-item:hover .quick-icon.blue {
+  box-shadow: 0 10px 22px rgba(91, 108, 255, 0.35);
+}
+
+.quick-item:hover .quick-icon.red {
+  box-shadow: 0 10px 22px rgba(239, 68, 68, 0.35);
+}
+
+.quick-item:hover .quick-icon.teal {
+  box-shadow: 0 10px 22px rgba(43, 176, 161, 0.35);
+}
+
+/* Optional: subtle press feedback */
+.quick-item:active .quick-icon {
+  transform: translateY(0) scale(0.98);
+  filter: brightness(0.98);
+}
+
+/* Responsive polish: slightly smaller on narrow screens */
+@media (max-width: 480px) {
+  .quick-actions {
+    gap: 22px;
+  }
+
+  .quick-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+
+  .quick-label {
+    font-size: 12px;
+  }
+}
+.quick-icon svg {
+  stroke: #ffffff;             /* Lucide uses stroke */
+  stroke-width: 2.2;           /* slightly bolder */
+  opacity: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25)); /* subtle clarity glow */
+}

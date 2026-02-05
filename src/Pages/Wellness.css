@@ -1,0 +1,115 @@
+.wellness-page {
+  padding: 24px;
+}
+
+.wellness-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.section-title {
+  margin: 28px 0 14px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Affirmation */
+.affirmation-card {
+  background: linear-gradient(135deg, #2bb0a1, #34d399);
+  color: white;
+  padding: 24px;
+  border-radius: 24px;
+  margin-bottom: 28px;
+}
+
+.affirmation-title {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Quick Activities */
+.quick-activities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.activity-card {
+  background: white;
+  border-radius: 18px;
+  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.activity-card svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* colors */
+.mint { background: #d1fae5; }
+.yellow { background: #fef3c7; }
+.pink { background: #fde2e2; }
+.peach { background: #ffedd5; }
+
+/* Wellness Tools */
+.tool-card {
+  border-radius: 22px;
+  padding: 22px;
+  color: white;
+  margin-bottom: 14px;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tool-card:active {
+  transform: scale(0.98);
+}
+.pink-tool {
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+.violet-tool {
+  background: linear-gradient(135deg, #8b5cf6, #7c4dff);
+}
+
+/* Music Cards */
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.music-card {
+  height: 180px;
+  border-radius: 24px;
+  padding: 18px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.music-card svg {
+  opacity: 0.9;
+}
+
+.teal { background: linear-gradient(135deg, #2bb0a1, #22c55e); }
+.violet { background: linear-gradient(135deg, #8b5cf6, #7c4dff); }
+.blue { background: linear-gradient(135deg, #6b7cff, #4f46e5); }
+.orange { background: linear-gradient(135deg, #fb923c, #f97316); }

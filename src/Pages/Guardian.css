@@ -1,0 +1,127 @@
+.guardians-page {
+  padding: 24px 20px 120px;
+}
+
+.guardians-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.guardians-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.guardians-header p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.add-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #ef4444;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(239, 68, 68, 0.45);
+}
+
+.guardians-info {
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  color: white;
+  padding: 20px;
+  border-radius: 22px;
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.guardians-info p {
+  margin: 6px 0 0;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.empty-state {
+  text-align: center;
+  margin-top: 40px;
+  color: #6b7280;
+}
+
+.empty-state button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: none;
+  background: #7c4dff;
+  color: white;
+  cursor: pointer;
+}
+
+.guardians-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.guardian-card {
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.guardian-info strong {
+  font-size: 15px;
+}
+
+.guardian-info span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.guardian-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.guardian-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  color: #9ca3af;
+  cursor: pointer;
+}

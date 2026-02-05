@@ -1,0 +1,33 @@
+/* src/components/Home.css */
+
+.home-page {
+  min-height: calc(100vh - 140px); /* full height minus bottom nav */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 24px;
+  box-sizing: border-box;
+}
+
+/* Main white card */
+.home-card {
+  width: 100%;
+  max-width: 1100px;          /* desktop width cap */
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 28px 24px 36px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Optional: tighten spacing on smaller screens */
+@media (max-width: 768px) {
+  .home-card {
+    padding: 20px 16px 28px;
+    border-radius: 22px;
+  }
+}

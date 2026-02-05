@@ -1,0 +1,54 @@
+.safety-card {
+  background: linear-gradient(135deg, #7c4dff, #8b5cf6);
+  border-radius: 28px;
+  padding: 22px 26px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.safety-left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.safety-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.safety-label {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.safety-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.safety-sub {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.safety-right {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 14px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+}
