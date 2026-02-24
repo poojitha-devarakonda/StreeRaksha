@@ -1,92 +1,88 @@
-import { ArrowLeft, Plus, Phone, Mail, Pencil, Trash2, Users } from 'lucide-react';
+import { Plus, User, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Layout from '../components/Layout';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './Guardian.css';
 
 export default function Guardians() {
   const navigate = useNavigate();
+  const [guardians, setGuardians] = useState([]);
 
-  const [guardians, setGuardians] = useState(
-    JSON.parse(localStorage.getItem('guardians') || '[]')
-  );
+  useEffect(() => {
+    fetchGuardians();
+  }, []);
 
-  const handleDelete = (index) => {
-    const ok = window.confirm('Delete this guardian? This cannot be undone.');
-    if (!ok) return;
-
-    const updated = guardians.filter((_, i) => i !== index);
-    setGuardians(updated);
-    localStorage.setItem('guardians', JSON.stringify(updated));
+  const fetchGuardians = async () => {
+    try {
+      const res = await axios.get("http://localhost:5050/api/guardian");
+      setGuardians(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const handleEdit = (index) => {
-    navigate('/guardians-add', { state: { editIndex: index } });
+  const deleteGuardian = async (id) => {
+    await axios.delete(`http://localhost:5050/api/guardian/${id}`);
+    fetchGuardians();
   };
 
   return (
     <Layout currentPageName="Guardians">
       <div className="guardians-page">
-        <header className="guardians-header">
-          <button className="back-btn" onClick={() => navigate('/')}>
-            <ArrowLeft size={22} />
-          </button>
 
+        <div className="guardians-header">
           <div>
             <h1>Guardians</h1>
-            <p>Your trusted emergency contacts</p>
+            <p>People who will be alerted in emergencies</p>
           </div>
 
-          <button className="add-btn" onClick={() => navigate('/guardians-add')}>
+          <button
+            className="add-btn"
+            onClick={() => navigate('/guardians-add')}
+          >
             <Plus size={20} />
           </button>
-        </header>
+        </div>
 
         <div className="guardians-info">
-          <Users />
+          <User size={26} />
           <div>
-            <strong>Who are Guardians?</strong>
-            <p>
-              Guardians are trusted people who will be notified during emergencies.
-              They’ll receive your location and can help coordinate assistance.
-            </p>
+            <strong>Stay Safe</strong>
+            <p>Add trusted people who can receive alerts</p>
           </div>
         </div>
 
         {guardians.length === 0 ? (
           <div className="empty-state">
-            <p>No guardians added yet.</p>
+            <p>No guardians added yet</p>
             <button onClick={() => navigate('/guardians-add')}>
-              Add your first guardian
+              Add First Guardian
             </button>
           </div>
         ) : (
           <div className="guardians-list">
-            {guardians.map((g, i) => (
-              <div key={i} className="guardian-card">
-                <div className="avatar">{g.name?.[0]?.toUpperCase()}</div>
+            {guardians.map((g) => (
+              <div className="guardian-card" key={g._id}>
+                <div className="avatar">
+                  {g.name.charAt(0)}
+                </div>
 
                 <div className="guardian-info">
                   <strong>{g.name}</strong>
-                  <span>{g.relationship}</span>
+                  <br />
+                  <span>{g.phone}</span>
 
                   <div className="guardian-meta">
-                    <span><Phone size={14} /> {g.phone}</span>
-                    {g.email && <span><Mail size={14} /> {g.email}</span>}
+                    <span>{g.relationship}</span>
                   </div>
                 </div>
 
-                <div className="guardian-actions">
-                  <Pencil
-                    size={16}
-                    className="edit-icon"
-                    onClick={() => handleEdit(i)}
-                  />
-                  <Trash2
-                    size={16}
-                    className="delete-icon"
-                    onClick={() => handleDelete(i)}
-                  />
+                <div
+                  className="guardian-actions"
+                  onClick={() => deleteGuardian(g._id)}
+                >
+                  <Trash2 size={18} />
                 </div>
               </div>
             ))}

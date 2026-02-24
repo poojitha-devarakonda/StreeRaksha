@@ -264,3 +264,14 @@ input[type="range"]::-moz-range-thumb {
   transform: translateY(1px);
   box-shadow: 0 8px 20px rgba(124, 77, 255, 0.35);
 }
+.suggestion-item {
+  background: white;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.suggestion-item:hover {
+  background: #f3f4f6;
+}

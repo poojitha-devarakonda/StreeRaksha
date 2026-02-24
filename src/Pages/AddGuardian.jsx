@@ -6,6 +6,7 @@ import './AddGuardian.css';
 
 export default function AddGuardian() {
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: '',
     phone: '',
@@ -13,10 +14,43 @@ export default function AddGuardian() {
     relationship: 'Friend',
   });
 
-  function saveGuardian() {
-    const existing = JSON.parse(localStorage.getItem('guardians') || '[]');
-    localStorage.setItem('guardians', JSON.stringify([...existing, form]));
-    navigate('/guardians');
+  const [otp, setOtp] = useState('');
+  const [otpSent, setOtpSent] = useState(false);
+
+  // SEND OTP
+  async function sendOTP() {
+    const res = await fetch("http://localhost:5050/api/guardian/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("OTP sent to email!");
+      setOtpSent(true);
+    } else {
+      alert(data.message);
+    }
+  }
+
+  // VERIFY OTP
+  async function verifyOTP() {
+    const res = await fetch("http://localhost:5050/api/guardian/verify-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: form.email, otp }),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      alert("Guardian added successfully!");
+      navigate('/guardians');
+    } else {
+      alert(data.message);
+    }
   }
 
   return (
@@ -32,25 +66,22 @@ export default function AddGuardian() {
         <div className="form-group">
           <label>Name</label>
           <input
-            placeholder="Full name"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
         </div>
 
         <div className="form-group">
-          <label>Phone Number</label>
+          <label>Phone</label>
           <input
-            placeholder="+1 234 567 8900"
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
           />
         </div>
 
         <div className="form-group">
-          <label>Email (Optional)</label>
+          <label>Email</label>
           <input
-            placeholder="email@example.com"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
@@ -60,7 +91,9 @@ export default function AddGuardian() {
           <label>Relationship</label>
           <select
             value={form.relationship}
-            onChange={(e) => setForm({ ...form, relationship: e.target.value })}
+            onChange={(e) =>
+              setForm({ ...form, relationship: e.target.value })
+            }
           >
             <option>Friend</option>
             <option>Parent</option>
@@ -69,13 +102,30 @@ export default function AddGuardian() {
           </select>
         </div>
 
+        {otpSent && (
+          <div className="form-group">
+            <label>Enter OTP</label>
+            <input
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+            />
+          </div>
+        )}
+
         <div className="form-actions">
           <button className="cancel" onClick={() => navigate('/guardians')}>
             Cancel
           </button>
-          <button className="save" onClick={saveGuardian}>
-            Add Guardian
-          </button>
+
+          {!otpSent ? (
+            <button className="save" onClick={sendOTP}>
+              Send OTP
+            </button>
+          ) : (
+            <button className="save" onClick={verifyOTP}>
+              Verify OTP
+            </button>
+          )}
         </div>
       </div>
     </Layout>
