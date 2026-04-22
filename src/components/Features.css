@@ -1,0 +1,77 @@
+.features h3 {
+  font-size: 20px;
+  margin: 24px 0 14px;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.feature-icon.pink { background: #f5a3c7; }
+.feature-icon.violet { background: #8b5cf6; }
+.feature-icon.teal { background: #2bb0a1; }
+
+.feature-text {
+  flex: 1;
+  margin-left: 12px;
+}
+
+.feature-title {
+  font-weight: 600;
+}
+
+.feature-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.chev {
+  font-size: 20px;
+  color: #c7c7d1;
+}
+/* Hover + interaction for feature cards */
+.feature-card {
+  cursor: pointer;
+  transition: 
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  background: #f3ecff; /* subtle tint so it "lights up" */
+}
+
+/* Optional: make the arrow react */
+.feature-card .chev {
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+
+.feature-card:hover .chev {
+  transform: translateX(4px);
+  color: #7c4dff; /* soft violet highlight */
+}
+
+/* Optional: small icon pop on hover */
+.feature-card:hover .feature-icon {
+  filter: brightness(1.05);
+}

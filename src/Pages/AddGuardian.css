@@ -1,0 +1,75 @@
+.add-guardian-page {
+  padding: 24px 20px 120px;
+}
+
+.add-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.add-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #7c4dff;
+  box-shadow: 0 0 0 3px rgba(124,77,255,0.15);
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.form-actions .cancel {
+  flex: 1;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-actions .save {
+  flex: 1;
+  background: linear-gradient(135deg, #f43f5e, #ec4899);
+  border: none;
+  border-radius: 14px;
+  padding: 14px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(236,72,153,0.35);
+}
+
+.form-actions .save:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(236,72,153,0.45);
+}

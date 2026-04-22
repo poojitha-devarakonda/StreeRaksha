@@ -1,0 +1,207 @@
+.sos-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0 60px;
+  position: relative;
+}
+
+.sos-glow-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glow behind button */
+.sos-glow {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(239, 68, 68, 0.35) 0%,
+    rgba(239, 68, 68, 0.2) 35%,
+    rgba(239, 68, 68, 0.1) 55%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  animation: sosPulse 2.2s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Actual button */
+.sos-btn {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #ff6b6b, #ef4444);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 50px rgba(239, 68, 68, 0.4);
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+/* Faint ring */
+.sos-btn::after {
+  content: '';
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.12);
+  z-index: -1;
+}
+
+/* Text */
+.sos-icon {
+  font-size: 26px;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.sos-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+
+.sos-sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sos-caption {
+  margin-top: 16px;
+  font-size: 13px;
+  color: #6b7280;
+}
+/* 💓 Heartbeat animation */
+@keyframes sosHeartbeat {
+  0% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.25;
+  }
+
+  10% {
+    transform: translate(-50%, -50%) scale(1.08);
+    opacity: 0.7;
+  }
+
+  20% {
+    transform: translate(-50%, -50%) scale(0.98);
+    opacity: 0.35;
+  }
+
+  30% {
+    transform: translate(-50%, -50%) scale(1.04);
+    opacity: 0.6;
+  }
+
+  40% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.95);
+    opacity: 0.25;
+  }
+}
+/* Overlay */
+.sos-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal */
+.sos-modal {
+  background: white;
+  border-radius: 26px;
+  padding: 28px 26px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  animation: pop 0.25s ease-out;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal icon */
+.sos-modal-icon {
+  width: 64px;
+  height: 64px;
+  background: #fee2e2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+/* Modal text */
+.sos-modal h2 {
+  margin: 8px 0 6px;
+}
+
+.sos-modal-desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 18px;
+}
+
+/* Status rows */
+.sos-status {
+  background: #ecfdf5;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #16a34a;
+  font-weight: 500;
+}
+
+/* Cancel button */
+.sos-cancel {
+  margin-top: 14px;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sos-cancel:hover {
+  background: #f9fafb;
+}

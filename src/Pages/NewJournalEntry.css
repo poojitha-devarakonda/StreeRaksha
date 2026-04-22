@@ -1,0 +1,136 @@
+/* Overlay */
+.journal-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Modal Card */
+.journal-modal {
+  background: #fff;
+  width: 92%;
+  max-width: 720px;
+  border-radius: 24px;
+  padding: 28px 28px 30px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+.journal-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.journal-modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.journal-modal-header button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.journal-modal-header button:hover {
+  background: #f3f4f6;
+}
+
+/* Prompt text */
+.journal-modal p {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #111827;
+}
+
+/* Mood Pills Grid */
+.mood-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+/* Mood Button */
+.mood {
+  border: 2px solid #e5e7eb;
+  background: white;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.mood:hover {
+  background: #f9fafb;
+}
+
+/* Active Mood */
+.mood.active {
+  background: #d1fae5;
+  border-color: #34d399;
+  color: #047857;
+}
+
+/* Inputs */
+.journal-modal input,
+.journal-modal textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 14px 16px;
+  font-size: 14px;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.journal-modal input:focus,
+.journal-modal textarea:focus {
+  border-color: #ec4899;
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15);
+}
+
+/* Textarea */
+.journal-modal textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+/* Save Button */
+.save-btn {
+  margin-top: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  box-shadow: 0 14px 35px rgba(236, 72, 153, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.save-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(236, 72, 153, 0.45);
+}
